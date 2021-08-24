@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maboutiquedeco - {{ product.name }}{% endblock %}
+
+{% block body %}
+<h1>{{ product.name }}</h1>
+<li><a href="{{ path('products') }}">Back</a></li>
+<ul>
+    <li><img src="/uploads/{{ product.image }}" alt="{{ product.name }}"></li>
+    <li>{{ product.name }}</li>
+    <li>{{ product.subtitle }}</li>
+    <li>{{ product.description }}</li>
+    <li>{{ (product.price / 100)|number_format(2,',',' ') }}$</li>
+    <li>{{ product.category }}</li>
+    <li><a href="">Add to Cart</a></li>
+</ul>
+{% endblock %}

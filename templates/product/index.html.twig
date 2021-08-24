@@ -3,4 +3,12 @@
 {% block title %}Maboutiquedeco - Product{% endblock %}
 
 {% block body %}
+<h1>Products</h1>
+{% for product in products %}
+    <ul>
+        <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><img src="/uploads/{{ product.image }}" alt="{{ product.name }}"></a></li>
+        <li>{{ product.name }}</li>
+        <li>{{ (product.price / 100)|number_format(2,',',' ') }}$</li>
+    </ul>
+{% endfor %}
 {% endblock %}
