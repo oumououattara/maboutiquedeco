@@ -35,7 +35,7 @@ class CarrierCrudController extends AbstractCrudController
         return [
             TextField::new('name'),
             TextareaField::new('description'),
-            MoneyField::new('price')->setCurrency('USD')
+            MoneyField::new('price')->setCurrency('EUR')
         ];
     }
     

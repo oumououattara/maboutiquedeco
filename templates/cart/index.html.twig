@@ -4,4 +4,43 @@
 
 {% block body %}
 <h1>Cart</h1>
+{% if cart|length > 0 %}
+    <table>
+        <thead>
+            <th></th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr>
+                {% set total = null %}
+                {% for product in cart %}
+                    <td><img src="/uploads/{{ product.product.image }}" alt="{{ product.product.name }}"></td>
+                    <td>{{ product.product.name }}</td>
+                    <td>
+                        <a href="{{ path('cart_decrease', { 'id' : product.product.id }) }}">-</a>
+                        x{{ product.quantity }}
+                        <a href="{{ path('cart_add', { 'id' : product.product.id }) }}">+</a>
+                    </td>
+                    <td>{{ (product.product.price / 100)|number_format(2,',',' ') }}€</td>
+                    <td>{{ ((product.product.price * product.quantity) / 100)|number_format(2,',',' ') }}€</td>
+                    <td><a href="{{ path('cart_delete', { 'id' : product.product.id }) }}">Delete</a></td>
+                    {% set total = total +  (product.product.price * product.quantity) %}
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <h2>Order summary</h2>
+    <ul>
+        <li>Number item: {{ cart|length }}</li>
+        <li>Subtotal: {{ (total / 100)|number_format(2,',',' ') }}€</li>
+        <li><a href="{{ path('products') }}">Continue shopping</a></li>
+        <li><a href="{{ path('order') }}">Proceed checkout</a></li>
+    </ul>
+{% else %}
+    <p>Cart empty.</p>
+{% endif %}
 {% endblock %}

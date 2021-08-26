@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Order{% endblock %}
+
+{% block body %}
+<h1>Checkout</h1>
+{% set formHtml %}
+    {{ form_start(form, { action: path('order_checkout') }) }}
+        {{  form_label(form.addresses, 'Choose you delivery address') }}
+            <a href="{{ path('profile_address_add') }}">Add an address</a>
+        {{ form_end(form) }}
+{% endset %}
+
+{{ formHtml|replace({'[br]' : '<br>'})|raw }}
+
+<hr>
+
+{% for product in cart %}
+    <ul>
+        <li><img src="/uploads/{{product.product.image }}" alt="{{ product.product.name }}"></li>
+        <li>{{ product.product.name }}</li>
+        <li>{{ product.quantity }}</li>
+    </ul>
+{% endfor %}
+{% endblock %}
