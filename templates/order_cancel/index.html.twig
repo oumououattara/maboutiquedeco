@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrderCancel{% endblock %}
+
+{% block body %}
+<h1>Order confirmation</h1>
+Hello {{ order.user.lastname }} {{ order.user.firstname }} <br>
+Something went wrong on your Order n°{{ order.reference }} <br>
+
+Track your order : <a href="">Profile</a>
+{% endblock %}

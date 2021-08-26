@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrderSuccess{% endblock %}
+
+{% block body %}
+<h1>Order confirmation</h1>
+Hello {{ order.user.lastname }} {{ order.user.firstname }} <br>
+Order n°{{ order.reference }} <br>
+
+Address : {{ order.delivery }} <br>
+
+delivery : {{ order.carrierName }}
+
+Track your order : <a href="">Profile</a>
+{% endblock %}
