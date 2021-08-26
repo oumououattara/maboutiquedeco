@@ -12,6 +12,6 @@
     <li>{{ product.description }}</li>
     <li>{{ (product.price / 100)|number_format(2,',',' ') }}$</li>
     <li>{{ product.category }}</li>
-    <li><a href="">Add to Cart</a></li>
+    <li><a href="{{ path('cart_add', { 'id' : product.id }) }}">Add to Cart</a></li>
 </ul>
 {% endblock %}
