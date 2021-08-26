@@ -8,14 +8,28 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * Class CategoryCrudController
+ * @package App\Controller\Admin
+ */
 class CategoryCrudController extends AbstractCrudController
 {
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     public static function getEntityFqcn(): string
     {
         return Category::class;
     }
 
-    
+    /**
+     * Undocumented function
+     *
+     * @param string $pageName
+     * @return iterable
+     */
     public function configureFields(string $pageName): iterable
     {
         return [

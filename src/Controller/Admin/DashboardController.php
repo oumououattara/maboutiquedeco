@@ -14,22 +14,38 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class DashboardController
+ * @package App\Controller\Admin
+ */
 class DashboardController extends AbstractDashboardController
 {
     /**
      * @Route("/admin", name="admin")
+     *
+     * @return Response
      */
     public function index(): Response
     {
         return parent::index();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Dashboard
+     */
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
             ->setTitle('Ma boutique deco');
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return iterable
+     */
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');

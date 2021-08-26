@@ -11,14 +11,28 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * Class ProductCrudController
+ * @package App\Controller\Admin
+ */
 class ProductCrudController extends AbstractCrudController
 {
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     public static function getEntityFqcn(): string
     {
         return Product::class;
     }
 
-    
+    /**
+     * Undocumented function
+     *
+     * @param string $pageName
+     * @return iterable
+     */
     public function configureFields(string $pageName): iterable
     {
         return [

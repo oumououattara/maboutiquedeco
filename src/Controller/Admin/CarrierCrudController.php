@@ -8,14 +8,28 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * Class CarrierCrudController
+ * @package App\Controller\Admin
+ */
 class CarrierCrudController extends AbstractCrudController
 {
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     public static function getEntityFqcn(): string
     {
         return Carrier::class;
     }
 
-    
+    /**
+     * Undocumented function
+     *
+     * @param string $pageName
+     * @return iterable
+     */
     public function configureFields(string $pageName): iterable
     {
         return [

@@ -8,14 +8,28 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
+/**
+ * Class HeaderCrudController
+ * @package App\Controller\Admin
+ */
 class HeaderCrudController extends AbstractCrudController
 {
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
     public static function getEntityFqcn(): string
     {
         return Header::class;
     }
 
-    
+    /**
+     * Undocumented function
+     *
+     * @param string $pageName
+     * @return iterable
+     */
     public function configureFields(string $pageName): iterable
     {
         return [

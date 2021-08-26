@@ -11,6 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class RegisterController
+ * @package App\Controller
+ */
 class RegisterController extends AbstractController
 {
     /**
@@ -31,7 +35,11 @@ class RegisterController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="register")
+     *  @Route("/register", name="register")
+     *
+     * @param Request $request
+     * @param UserPasswordHasherInterface $hasher
+     * @return Response
      */
     public function index(Request $request, UserPasswordHasherInterface $hasher): Response
     {
